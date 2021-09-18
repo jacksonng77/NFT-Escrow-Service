@@ -45,7 +45,6 @@ contract nftescrow is IERC721Receiver {
         projectState = ProjectState.nftDeposited;
     }
     
-    //to test 16th Sep 2021
     function cancelAtNFT()
         public
         inProjectState(ProjectState.nftDeposited)
@@ -54,8 +53,7 @@ contract nftescrow is IERC721Receiver {
         ERC721(nftAddress).safeTransferFrom(address(this), msg.sender, tokenID);
         projectState = ProjectState.cancelNFT;
     }
-
-    //to test 16th Sep 2021    
+  
     function cancelBeforeDelivery(bool _state)
         public
         inProjectState(ProjectState.ethDeposited)
@@ -85,7 +83,6 @@ contract nftescrow is IERC721Receiver {
         projectState = ProjectState.ethDeposited;
     }
     
-    //to test 16th Sep 2021    
     function initiateDelivery()
         public
         inProjectState(ProjectState.ethDeposited)
